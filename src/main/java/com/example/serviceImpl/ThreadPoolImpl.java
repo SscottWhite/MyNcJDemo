@@ -54,7 +54,7 @@ public class ThreadPoolImpl implements ThreadPool {
 				}
 			};
 			
-			ExecutorService executorService = Executors.newScheduledThreadPool(10);
+			ExecutorService executorService = Executors.newScheduledThreadPool(5);
 			int i = 0;
 			while (i <= 10) {
 				executorService.submit(run);
