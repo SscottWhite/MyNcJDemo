@@ -34,6 +34,8 @@ public class Sub extends Main {
 	//代码块
 	public void tstMainOne() {
 		int i = 1;
+		String str = new String();
+		String str2 = new String();
     	try {
 //    		synchronized (this) {
 //    			System.out.println("sub begin "+ Thread.currentThread().getName() +"---" + System.currentTimeMillis());
@@ -46,10 +48,30 @@ public class Sub extends Main {
 			synchronized (this) {
 				i++;
 			}
+			//锁非this , 可以很多个代码块争抢资源
+		/*	synchronized(str) {
+				i++;
+			}
+			synchronized(str2) {
+				i++;
+			}
+			*/
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
     }
 	
-	
+	//onemorelist  测试
+	public OneMoreList addServiceMethod(OneMoreList oml, String str) {
+		
+		try {
+			if(oml.getList() < 1) {
+				Thread.sleep(2000);
+				oml.setList(str);
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		return oml;
+	}
 }

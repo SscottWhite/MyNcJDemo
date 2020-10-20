@@ -21,4 +21,5 @@ public class MyThreadA extends Thread{
 		super.run();
 		sub.tstMainOne();
 	}
+	
 }

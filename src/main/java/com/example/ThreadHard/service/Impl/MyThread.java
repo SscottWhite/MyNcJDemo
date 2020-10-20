@@ -39,4 +39,17 @@ public class MyThread{
 		b.start();
 	}
 	*/
+	
+	public static void main(String[] args) throws InterruptedException {
+		OneMoreList olist = new OneMoreList();
+		MyThreadOne one = new MyThreadOne(olist);
+		one.setName("oneA");
+		one.start();
+		MyThreadTwo two = new MyThreadTwo(olist);
+		two.setName("twoB");
+		two.start();
+		
+		Thread.sleep(6000);
+		System.out.println("lsit size:"+olist.getList());
+	}
 }
