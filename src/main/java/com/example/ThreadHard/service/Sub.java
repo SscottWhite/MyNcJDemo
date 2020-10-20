@@ -65,10 +65,12 @@ public class Sub extends Main {
 	public OneMoreList addServiceMethod(OneMoreList oml, String str) {
 		
 		try {
-			if(oml.getList() < 1) {
-				Thread.sleep(2000);
-				oml.setList(str);
-			}
+			synchronized (oml) {  //解决脏读 , list不可能是2
+				if(oml.getList() < 1) {
+					Thread.sleep(2000);
+					oml.setList(str);
+				}
+			}			
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
