@@ -1,5 +1,7 @@
 package com.example.ThreadHard.service.Impl;
 
+import java.util.Optional;
+
 import com.example.ThreadHard.service.*;
 
 public class MyThread{
@@ -42,6 +44,7 @@ public class MyThread{
 	
 	public static void main(String[] args) throws InterruptedException {
 		OneMoreList olist = new OneMoreList();
+		String str= null;
 		MyThreadOne one = new MyThreadOne(olist);
 		one.setName("oneA");
 		one.start();
@@ -50,6 +53,8 @@ public class MyThread{
 		two.start();
 		
 		Thread.sleep(6000);
+		
+		System.out.println(Optional.ofNullable(str));
 		System.out.println("lsit size:"+olist.getList());
 	}
 }

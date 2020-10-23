@@ -65,7 +65,7 @@ public class Sub extends Main {
 	public OneMoreList addServiceMethod(OneMoreList oml, String str) {
 		
 		try {
-			synchronized (oml) {  //解决脏读 , list不可能是2
+			synchronized (oml) {  //解决脏读 , list不可能是2  ,代码块参数, 最好不用String, 容易重复
 				if(oml.getList() < 1) {
 					Thread.sleep(2000);
 					oml.setList(str);

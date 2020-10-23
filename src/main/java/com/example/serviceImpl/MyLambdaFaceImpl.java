@@ -1,5 +1,7 @@
 package com.example.serviceImpl;
 
+import java.util.Optional;
+
 import com.example.service.FanXing;
 import com.example.service.MyLambdaFace;
 import com.example.service.MyLambdaFace2;
@@ -30,6 +32,9 @@ public class MyLambdaFaceImpl {
 	
 	
 	public  void face4(String str ,MyLambdaFace face) {
+		//
+		Optional.ofNullable(str);
+		
 		face.getRun(str);
 	}
 }
