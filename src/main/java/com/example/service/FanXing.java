@@ -20,6 +20,7 @@ public class FanXing {
 		list.add("08");
 		user.setUserInfo(list);
 		
+		System.out.println(Integer.MAX_VALUE);
 		System.out.println(getInfo(user.getUserInfo()));
 		System.out.println(mapIF.getKey());
 		System.out.println(((MapImpl)mapIF).getKV());//当然也能这么强制转

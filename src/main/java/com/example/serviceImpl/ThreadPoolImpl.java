@@ -1,8 +1,11 @@
 package com.example.serviceImpl;
 
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.SynchronousQueue;
@@ -39,26 +42,40 @@ public class ThreadPoolImpl implements ThreadPool {
 		}
 		
 		
-		public static void main(String[] args) {
+		public static void main(String[] args) throws Exception, ExecutionException {
 			Runnable run = new Runnable() {			
 				@Override
 				 synchronized public void run() {
-					// TODO Auto-generated method stub
 					System.out.println(Thread.currentThread().getName()+"--123");
 					try {
 						Thread.sleep(100);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				}
 			};
 			
+			Callable<String> callable = new Callable<String>() {
+				@Override
+				public synchronized String call() throws Exception {
+					return "213-"+Thread.currentThread().getName();
+				}
+			};
+			
 			ExecutorService executorService = Executors.newScheduledThreadPool(5);
+			ExecutorService exe = Executors.newFixedThreadPool(2);
+			
+			
 			int i = 0;
 			while (i <= 10) {
 				executorService.submit(run);
 				i++;
+			}
+			
+			while(i < 20 ) {
+				Future<String> future = exe.submit(callable);
+				i++;
+				System.out.println(future.get());
 			}
 			
 			System.out.println( executorService.isShutdown() );
