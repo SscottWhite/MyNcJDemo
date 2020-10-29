@@ -13,8 +13,9 @@ import com.example.JobTrigger.Impl.MyJob;
 
 public class MyTraigger {
 	public static void main(String[] args) {
-		//任务明细
-		JobDetail jobDetail = JobBuilder.newJob(MyJob.class)
+		//任务明细,把储值分给
+		JobDetail jobDetail = JobBuilder
+								.newJob(MyJob.class)
 								.withIdentity("job1", "group1")
 								.usingJobData("name", "jake")
 								.build();
@@ -23,10 +24,14 @@ public class MyTraigger {
 							.newTrigger()
 							.withIdentity("trigger1", "group1")
 							.startNow()
-							.withSchedule(SimpleScheduleBuilder.simpleSchedule().withIntervalInSeconds(1).repeatForever())
+							.withSchedule(SimpleScheduleBuilder
+											.simpleSchedule()
+											.withIntervalInSeconds(1)
+											.repeatForever())
 							.build();
 		
 		try {
+			//调度分配
 			Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
 			scheduler.scheduleJob(jobDetail, trigger);
 			scheduler.start();
