@@ -29,7 +29,7 @@ public class ThreadPoolImpl implements ThreadPool {
 				
 			ScheduledExecutorService sser = Executors.newScheduledThreadPool(3);
 			ExecutorService exer = Executors.newCachedThreadPool(new MyThreadFactory());
-		//	ScheduledThreadPoolExecutor exee = nw
+			
 				
 			ExecutorService exxcuter = new ThreadPoolExecutor(2, 
 									 3, 
