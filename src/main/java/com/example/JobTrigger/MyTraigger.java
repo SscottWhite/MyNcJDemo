@@ -46,7 +46,6 @@ public class MyTraigger {
 			
 		} catch (SchedulerException e) {
 			e.printStackTrace();
-		}
-		
+		}	
 	}
 }
