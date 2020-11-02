@@ -1,5 +1,6 @@
 package com.example.JobTrigger;
 
+import org.apache.log4j.Logger;
 import org.quartz.JobBuilder;
 import org.quartz.JobDetail;
 import org.quartz.Scheduler;
@@ -11,8 +12,14 @@ import org.quartz.impl.StdSchedulerFactory;
 
 import com.example.JobTrigger.Impl.MyJob;
 
+
 public class MyTraigger {
+	
+	private static Logger logger = Logger.getLogger(MyTraigger.class);
+
 	public static void main(String[] args) {
+		
+		 
 		//任务明细,把储值分给
 		JobDetail jobDetail = JobBuilder
 								.newJob(MyJob.class)
@@ -35,7 +42,7 @@ public class MyTraigger {
 			Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
 			scheduler.scheduleJob(jobDetail, trigger);
 			scheduler.start();
-			
+			logger.info(scheduler.hashCode());
 			try {
 				Thread.sleep(60000);
 			} catch (InterruptedException e) {
