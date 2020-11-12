@@ -10,29 +10,38 @@ public class UserDTO {
 	private Integer userAge;
 	
 	private List<String> userInfo;
+	
+	private String[] infoS;
 
+	public UserDTO(String... strings ) {
+		this.infoS = strings;
+	}
+	
 	public String getUserID() {
 		return userID;
 	}
-
 	public Integer getUserAge() {
 		return userAge;
 	}
-
 	public List<String> getUserInfo() {
 		return userInfo;
 	}
+	public String[] getInfoS() {
+		return infoS;
+	}
+
 
 	public void setUserID(String userID) {
 		this.userID = userID;
 	}
-
 	public void setUserAge(Integer userAge) {
 		this.userAge = userAge;
 	}
-
 	public void setUserInfo(List<String> userInfo) {
 		this.userInfo = userInfo;
+	}
+	public void setInfoS(String[] infoS) {
+		this.infoS = infoS;
 	}
 
 	@Override
@@ -76,6 +85,8 @@ public class UserDTO {
 	public String toString() {
 		return "UserDTO [userInfo=" + userInfo + "]";
 	}
+
+	
 	
 	
 }

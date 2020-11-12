@@ -11,7 +11,7 @@ public class CollectionGather {
 	public static void main(String[] args) {
 		    
 		    Object value = new Object();
-		    
+
 	        HashMap<String, Object> hashMap = new HashMap<>();
 	        HashSet<String> hashSet = new HashSet<>();
 	        LinkedHashMap<String, Object> linkedHashMap = new LinkedHashMap<>();
@@ -46,7 +46,7 @@ public class CollectionGather {
 	        hashMap.put("c", value);
 	        linkedHashSet.add("c");
 	        linkedHashMap.put("c", value);
-
+	      
 	        System.out.println("默认插入序：\njava\tgolang\tpython\truby\tscala\tc");
 
 	        System.out.println(" \nHashSet:-------------------");
