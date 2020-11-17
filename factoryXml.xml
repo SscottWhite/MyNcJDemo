@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<table>
+    <person>
+        <name class="name">Jack</name>
+        <age id="1">20</age>
+    </person>
+</table>
