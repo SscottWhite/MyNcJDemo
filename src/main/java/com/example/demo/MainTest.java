@@ -1,9 +1,6 @@
-package com.example.main.test;
+package com.example.demo;
 
 import java.util.EnumSet;
-
-import com.example.demo.MyEnumDemo;
-import com.example.demo.WeekDay;
 
 public class MainTest {
 //	public static void main(String[] args) {
