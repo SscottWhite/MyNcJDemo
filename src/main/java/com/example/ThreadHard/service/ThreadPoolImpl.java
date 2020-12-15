@@ -13,8 +13,6 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-import com.example.service.ThreadPool;
-
 public class ThreadPoolImpl implements ThreadPool {
 	
 		public void getThreadPool() {
