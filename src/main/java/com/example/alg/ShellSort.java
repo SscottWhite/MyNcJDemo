@@ -1,6 +1,6 @@
 package com.example.alg;
 /**
- * s 希尔排序
+ * s 希尔排序  ,有定长, 二分排序
  * s  给量大的数据先排好序, 再采用直接排序
  * @author KJS_352
  *
@@ -8,8 +8,8 @@ package com.example.alg;
 public class ShellSort {
 	public static void main(String[] args) {
 		int[] a = new int[] {1,6,3,2,8,5,7,4};
-		int[] b = sort(a);
-	//	int[] b = sort2(a);
+	//	int[] b = sort(a);
+		int[] b = sort2(a);
 		for(int x = 0; x < b.length; x++) {
 			System.out.println(b[x]);			
 		}
@@ -32,5 +32,21 @@ public class ShellSort {
 			}
 		}
 		return array;
+	}
+	
+	public static int[] sort2(int[] array){ 
+	    int j; 
+	    for(int gap = array.length/2; gap>0; gap /= 2){ 
+	    //定义一个增长序列，即分割数组的增量,d1=N/2 dk=(d(k-1))/2 
+	        for(int i = gap; i<array.length; i++){ 
+	            int tmp = array[i]; 
+	            for( j = i; j >= gap && tmp < array[j-gap]; j -= gap){
+	             //将相距为Dk的元素进行排序 
+	                 array[j] = array[j-gap];
+	            } 
+	            array[j] = tmp;
+	        } 
+	    } 
+	    return array;
 	}
 }

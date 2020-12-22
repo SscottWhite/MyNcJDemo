@@ -27,7 +27,7 @@ public class DirectInsertSort {
 				j--;
 			}
 			//把占用的位置填上
-			array[j+1] = count;
+			array[j+1] = count;//最后一步多剪了一个1, 所以这边要加回来
 		}
 		return array;
 	}
