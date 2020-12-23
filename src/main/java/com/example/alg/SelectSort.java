@@ -1,7 +1,7 @@
 package com.example.alg;
 
 /**
- * s 选择排序, 就是不停的对比, 选一个最小的放前面, 然后再同样比下去
+ * s 选择排序, 从前往后, 就是不停的对比, 选一个最小的放前面, 然后再同样比下去
  * @author KJS_352
  *
  */
@@ -9,7 +9,7 @@ public class SelectSort {
 	
 	public static void main(String[] args) {
 		int[] a = new int[] {1,6,3,2,8,5,7,4};
-		int[] b = sort2(a);
+		int[] b = sort(a);
 	//	int[] b = sort2(a);
 		for(int x = 0; x < b.length; x++) {
 			System.out.println(b[x]);			
@@ -23,12 +23,13 @@ public class SelectSort {
 			position = array[i];
 			for(int j = i+1; j < array.length; j++) {
 				if(position > array[j]) {
-					position = array[j];
+					position = array[j];//把最小值和位置记录下来, 换到i的起始位去
 					key = j;
 				}
 			}
-			array[key] = array[i];//最小位置对调
-			array[i] = position;//最小值对调
+			//最小直位置与起始i对调
+			array[key] = array[i];
+			array[i] = position;
 		}
 		return array;
 	}
