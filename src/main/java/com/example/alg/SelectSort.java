@@ -44,12 +44,12 @@ public class SelectSort {
 	                min = array[j];
 	                minindex = j; 
 	             } 
-	       } 
-	       if(i != minindex){ 
+	        } 
+	        if(i != minindex){ 
 	       //若i不是当前元素最小的，则和找到的那个元素交换 
 	           array[minindex] = array[i]; 
 	           array[i] = min; 
-	       }
+	        }
 	    }
 	    return array;
 	}
