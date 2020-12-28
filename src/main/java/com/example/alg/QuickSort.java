@@ -8,8 +8,8 @@ package com.example.alg;
 public class QuickSort {
 	public static void main(String[] args) {
 		int[] a = new int[] {1,6,3,2,8,5,7,4};
-	//	int[] b = sort(a,0,a.length-1);
-		int[] b = sort2(a,0,a.length-1);
+		int[] b = sort(a,0,a.length-1);
+	//	int[] b = sort2(a,0,a.length-1);
 		for(int x = 0; x < b.length; x++) {
 			System.out.println(b[x]);			
 		}
@@ -18,6 +18,7 @@ public class QuickSort {
 	public static int[] sort(int[] array, int start, int end) {
 		int a = 0;
 		if(start < end) {
+			//间接排序后再分开排序, 直至分到最小分区
 			a = partition(array, start, end);
 			sort(array,start,a);
 			sort(array,a+1,end);
@@ -33,7 +34,7 @@ public class QuickSort {
 				high--;//从后往前
 			}
 			array[low] = array[high];//把小的换到前面
-			while(low < high && array[low] < position) {
+			while( low < high && array[low] < position) {
 				low++;//从前往后
 			}
 			array[high] = array[low];//把大得换到后面
