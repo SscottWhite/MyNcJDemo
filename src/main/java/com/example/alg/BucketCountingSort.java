@@ -6,7 +6,8 @@ package com.example.alg;
  */
 public class BucketCountingSort {
 	public static void main(String[] args) {
-		int[] a = new int[] {1,6,3,21,2,8,8,7,4,22};
+		int[] a = new int[] {1,6,3,21,2,7,4,22,8,8};
+	//	int[] a = new int[] {2,1,3,5,3};
 		int[] b = sort(a,1,23);
 	//	int[] b = sort2(a);
 		for(int x = 0; x < b.length; x++) {
@@ -33,7 +34,8 @@ public class BucketCountingSort {
 	    System.arraycopy(data, 0, tmp, 0, data.length); 
 	    // 根据buckets 数组中的信息将待排序列的各元素放入相应位置 
 	    for (int k = data.length - 1; k >= 0; k--) { 
-	        data[--buckets[tmp[k] - min]] = tmp[k]; //如果是一样的数值, 确实只要取同一位置的数就行
+	        data[--buckets[tmp[k] - min]] = tmp[k]; //如果是一样的数值, 确实只要取同一位置的数, 但是数值已经--了
+	        //如果你不明白上面的同值 .  说明还不是很熟悉 --bucket 的意思
 	    }
 	    return data;
 	}
