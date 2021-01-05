@@ -33,7 +33,7 @@ public class SortTest {
 	public static void main(String[] args) {	
 		int[] a = new int[] {1,6,3,2,8,5,7,4,9,20,33,32,23,12,11};
 		int[] b = new int[a.length];
-		
+		Long  aLong = 2L;
 		long startTime = System.currentTimeMillis();
 	BubbleSort.sort(a);
 		long endTime = System.currentTimeMillis();

@@ -27,7 +27,7 @@ public class SelectSort {
 					key = j;
 				}
 			}
-			//最小直位置与起始i对调
+			//最小直位置和值 与 其起始的对调
 			array[key] = array[i];
 			array[i] = position;
 		}
