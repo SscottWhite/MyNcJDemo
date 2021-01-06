@@ -30,7 +30,7 @@ public class SortTest {
         System.out.println("k="+k);
 	}*/
 	
-	public static void main(String[] args) {	
+	/*public static void main(String[] args) {	
 		int[] a = new int[] {1,6,3,2,8,5,7,4,9,20,33,32,23,12,11};
 		int[] b = new int[a.length];
 		Long  aLong = 2L;
@@ -58,5 +58,11 @@ public class SortTest {
 	QuickSort.sort(a,0,a.length-1);
 		long endTime5 = System.currentTimeMillis();
 		System.out.println("快速:"+(endTime5-startTime5));
+	}*/
+	
+	public static void main(String[] args) {
+		int max = 321,time=0;
+		 while (max > 0) { max /= 10; time++; }
+		System.out.print(Math.pow(2,0)+";"+time+";"+(234%1000));
 	}
 }
