@@ -1,4 +1,4 @@
-package com.example.alg;
+package com.example.alg.sort;
 
 /**
  * s 快速排序 ,   从两头向中间比较, 去一个平衡值, 以值区分, 分别在进行

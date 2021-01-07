@@ -1,4 +1,4 @@
-package com.example.alg;
+package com.example.alg.sort;
 
 /**
  * s 选择排序, 从前往后, 就是不停的对比, 选一个最小的放前面, 然后再同样比下去

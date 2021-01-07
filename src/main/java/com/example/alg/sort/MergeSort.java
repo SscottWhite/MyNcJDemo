@@ -1,4 +1,4 @@
-package com.example.alg;
+package com.example.alg.sort;
 
 /**
  * s 归并排序

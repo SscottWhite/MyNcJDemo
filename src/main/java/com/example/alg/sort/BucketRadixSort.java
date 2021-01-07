@@ -1,4 +1,4 @@
-package com.example.alg;
+package com.example.alg.sort;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

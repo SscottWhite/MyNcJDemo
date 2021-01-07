@@ -1,4 +1,4 @@
-package com.example.alg;
+package com.example.alg.sort;
 /**
  * s 希尔排序  ,有定长, 二分排序
  * s  给量大的数据先排好序, 再采用直接排序

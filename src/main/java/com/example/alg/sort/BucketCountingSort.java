@@ -1,4 +1,4 @@
-package com.example.alg;
+package com.example.alg.sort;
 /**
  * s 桶排序的一种 计数排序
  * @author KJS_352

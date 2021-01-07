@@ -1,4 +1,4 @@
-package com.example.alg;
+package com.example.alg.sort;
 
 /**
  *s   插入排序  从后往前
