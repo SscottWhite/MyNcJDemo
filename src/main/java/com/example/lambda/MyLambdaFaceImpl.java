@@ -1,6 +1,8 @@
-package com.example.service;
+package com.example.lambda;
 
 import java.util.Optional;
+
+import com.example.service.FanXing;
 
 public class MyLambdaFaceImpl {
 	public static void main(String[] args) {
