@@ -1,7 +1,9 @@
-package com.example.lambda;
+package com.example.lambda.impl;
 
 import java.util.Optional;
 
+import com.example.lambda.MyLambdaFace;
+import com.example.lambda.MyLambdaFace2;
 import com.example.service.FanXing;
 
 public class MyLambdaFaceImpl {
