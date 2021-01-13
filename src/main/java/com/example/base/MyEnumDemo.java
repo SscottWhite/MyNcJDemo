@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.base;
 
 public enum MyEnumDemo {
 		RED("红",1),

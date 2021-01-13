@@ -4,7 +4,9 @@ import java.util.Optional;
 
 import com.example.lambda.MyLambdaFace;
 import com.example.lambda.MyLambdaFace2;
+import com.example.lambda.MyNotLambdaFace;
 import com.example.service.FanXing;
+import com.fasterxml.jackson.core.sym.Name;
 
 public class MyLambdaFaceImpl {
 	public static void main(String[] args) {
@@ -28,6 +30,9 @@ public class MyLambdaFaceImpl {
 		//记住是引用的方法返回值和接口的返回值相同, 应用了重写的概念, 实现的最终就是fase5方法
 		MyLambdaFace2 face22 = new FanXing()::face5;  // => String -> {new Fanxing().face5(String)}
 		System.out.println(face22.run("test22"));
+		
+		MyNotLambdaFace myNotLambdaFace = name -> name + 1;
+		System.out.println(myNotLambdaFace.getName(3));
 	}
 	
 	

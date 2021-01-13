@@ -17,6 +17,11 @@ public class UserDTO {
 		this.infoS = strings;
 	}
 	
+	public UserDTO(int age, String name ) {
+		this.userID = name;
+		this.userAge = age;
+	}
+	
 	public String getUserID() {
 		return userID;
 	}
@@ -83,7 +88,7 @@ public class UserDTO {
 
 	@Override
 	public String toString() {
-		return "UserDTO [userInfo=" + userInfo + "]";
+		return "UserDTO [userInfo=" + userAge + "," + userID + "]";
 	}
 
 	
