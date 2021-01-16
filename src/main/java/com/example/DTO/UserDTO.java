@@ -3,7 +3,7 @@ package com.example.DTO;
 import java.util.List;
 
 
-public class UserDTO {
+public class UserDTO implements Comparable<UserDTO> {
 	
 	private String  userID;
 	
@@ -89,6 +89,16 @@ public class UserDTO {
 	@Override
 	public String toString() {
 		return "UserDTO [userInfo=" + userAge + "," + userID + "]";
+	}
+
+
+	@Override
+	public int compareTo(UserDTO o) {
+		if(o.userAge.compareTo(this.userAge) == 0) {
+			return o.userID.compareTo(this.userID);
+		} else {
+			return o.userAge-this.userAge;
+		}
 	}
 
 	

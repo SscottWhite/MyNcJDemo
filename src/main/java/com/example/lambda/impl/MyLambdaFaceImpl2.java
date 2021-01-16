@@ -25,10 +25,9 @@ public class MyLambdaFaceImpl2 {
 		 List<UserDTO> list2 =  numberProvider.getUserList(5, list);
 		 System.out.println(list2);*/
 		 
-		 Stream.of(new UserDTO(1,"j"),new UserDTO(2,"x"))
+		 Stream
+		 	.of(new UserDTO(1,"j"),new UserDTO(2,"x"))
 		 	.map(UserDTO::getUserID)
 		 	.forEach(System.out::println);
 	}
-	 
-	 
 }
