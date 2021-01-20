@@ -15,8 +15,8 @@ public class SendNote {
 	// 设置公共请求参数，初始化Client。
     private DefaultProfile profile = DefaultProfile.getProfile(
           "cn-hangzhou",// API支持的地域ID，如短信API的值为：cn-hangzhou。
-          "LTAI4G9RN14rGCG3H8BT5eNT",// 您的AccessKey ID。
-          "9xOFAmDT7cy4PbwUpJf9ezkZu0nIBo");// 您的AccessKey Secret。
+          "************",// 您的AccessKey ID。
+          "***********");// 您的AccessKey Secret。
     private IAcsClient client = new DefaultAcsClient(profile);
 
     private static void log_print(String functionName, Object result) {
