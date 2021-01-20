@@ -37,7 +37,7 @@ public class ReduceTest {
 		System.out.println();
 		IntStream.rangeClosed(1, 3).forEach(System.out::print);// [ ]
 		
-		
-		
+		//ecplise
+		//IDEA
 	}
 }
