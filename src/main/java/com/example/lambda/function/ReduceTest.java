@@ -1,6 +1,10 @@
 package com.example.lambda.function;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -39,5 +43,19 @@ public class ReduceTest {
 		
 		//ecplise
 		//IDEA
+		
+		List<Optional<String>> list1 = Arrays.asList (
+			      Optional.empty(), 
+			      Optional.of("A"), 
+			      Optional.empty(), 
+			      Optional.of("B"));		
+		List<String> list2 = list1
+					.stream()
+					.flatMap(o -> o.isPresent() ? Stream.of(o.get()) : Stream.empty())
+					.collect(Collectors.toList());
+		List<String> list3 = list1.stream().flatMap(Optional::stream).collect(Collectors.toList());
+		
+		System.out.println(list2);
+		System.out.println(list3);
 	}
 }
