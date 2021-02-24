@@ -12,5 +12,6 @@ public class BasicsMath {
 //		System.out.println(i >>>= 1);//6
 //		System.out.println(x >>>= 1);//7
 //		System.out.println(j >>>= 1);//5
+		System.out.println( -1 << 30);
 	}
 }

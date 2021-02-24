@@ -1,16 +1,16 @@
 package com.example.collection;
 
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import org.apache.commons.collections4.map.HashedMap;
 
 public class MapTest {
    public static void main(String[] args) {
-	   Map<String, Integer> map = new HashedMap<String, Integer>();
+	   Map<String, Integer> map = new HashMap<String, Integer>();
 	   
 	   Map<String, Integer> linkmap = new LinkedHashMap<String, Integer>();
 	   int i = 0;
