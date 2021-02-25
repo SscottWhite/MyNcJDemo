@@ -34,8 +34,15 @@
         </repository>
     </repositories>	
     
-    <!--start excel转PDF -->  
+   
 	<dependencies>  	
+		<!--导入配置文件处理器，配置文件进行绑定就会有提示-->
+		<dependency>
+		 <groupId>org.springframework.boot</groupId>
+		 <artifactId>spring-boot-configuration-processor</artifactId>
+		 <optional>true</optional>
+		</dependency>
+		<!--start excel转PDF -->  
 		 <dependency>
 		 	<groupId>e-iceblue</groupId>
         	<artifactId>spire.xls.free</artifactId>
@@ -153,6 +160,20 @@
          <version>4.4.3</version>
   	   </dependency>
     	
+    	<!-- @Email -->
+    	<dependency>
+			<groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-validator</artifactId>
+		    <version>5.2.4.Final</version>
+		</dependency>
+		
+		<!-- lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.18</version>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
 
 	<build>

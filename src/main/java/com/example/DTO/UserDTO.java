@@ -2,7 +2,9 @@ package com.example.DTO;
 
 import java.util.List;
 
+import lombok.Data;
 
+@Data
 public class UserDTO implements Comparable<UserDTO> {
 	
 	private String  userID;
@@ -22,32 +24,7 @@ public class UserDTO implements Comparable<UserDTO> {
 		this.userAge = age;
 	}
 	
-	public String getUserID() {
-		return userID;
-	}
-	public Integer getUserAge() {
-		return userAge;
-	}
-	public List<String> getUserInfo() {
-		return userInfo;
-	}
-	public String[] getInfoS() {
-		return infoS;
-	}
-
-
-	public void setUserID(String userID) {
-		this.userID = userID;
-	}
-	public void setUserAge(Integer userAge) {
-		this.userAge = userAge;
-	}
-	public void setUserInfo(List<String> userInfo) {
-		this.userInfo = userInfo;
-	}
-	public void setInfoS(String[] infoS) {
-		this.infoS = infoS;
-	}
+	
 
 	@Override
 	public int hashCode() {

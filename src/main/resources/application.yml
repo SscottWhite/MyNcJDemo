@@ -1,0 +1,6 @@
+person:
+    name : 'jack'
+    maps :
+      age : 14
+    list : [1,2,3]
+      
