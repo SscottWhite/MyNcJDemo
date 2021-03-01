@@ -4,3 +4,7 @@ person:
       age : 14
     list : [1,2,3]
       
+logging:
+  config: logback.xml
+  level:
+    com.example.log: trace
