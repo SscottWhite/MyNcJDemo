@@ -1,4 +1,4 @@
-package com.example.IO.ymltest;
+package com.example.ymltest;
 
 import java.util.List;
 import java.util.Map;
@@ -20,16 +20,18 @@ import lombok.Data;
 
 @Validated  // 或者@Configuration   // 自定义配置文件时，可以使用@Validated注解对注入的值进行一些简单的校验，
 @Component
-@ConfigurationProperties(prefix="person")
+@ConfigurationProperties(prefix="person")  //指向配置文件的前缀 比如person.name
 @PropertySource(value="classpath:person.properties")
 @Data
 public class Person {
 	
-	 @Email
+	 private String name;
+	 private Integer age;
+	// @Email
 	 private  String email;
 		
 	 private Map<String,String> maps;
-	 private List<String> list;
-	 private String name;
-
+	 private List<String> list;	
+	 private String[] arrays;
+	 private List<Map<String,String>> listm;
 }

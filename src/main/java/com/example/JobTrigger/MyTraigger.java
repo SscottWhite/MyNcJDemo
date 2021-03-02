@@ -1,6 +1,5 @@
 package com.example.JobTrigger;
 
-import org.apache.log4j.Logger;
 import org.quartz.JobBuilder;
 import org.quartz.JobDetail;
 import org.quartz.Scheduler;
@@ -12,10 +11,12 @@ import org.quartz.impl.StdSchedulerFactory;
 
 import com.example.JobTrigger.Impl.MyJob;
 
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class MyTraigger {
 	
-	private static Logger logger = Logger.getLogger(MyTraigger.class);
+	//private static Logger logger = Logger.getLogger(MyTraigger.class);
 
 	public static void main(String[] args) {
 		
@@ -42,7 +43,7 @@ public class MyTraigger {
 			Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
 			scheduler.scheduleJob(jobDetail, trigger);
 			scheduler.start();
-			logger.info(scheduler.hashCode());
+			log.info(null, scheduler.hashCode());
 			try {
 				Thread.sleep(60000);
 			} catch (InterruptedException e) {

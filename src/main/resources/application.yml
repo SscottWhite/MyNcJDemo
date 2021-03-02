@@ -1,10 +1,15 @@
-person:
-    name : 'jack'
-    maps :
-      age : 14
-    list : [1,2,3]
-      
+#冒号后面一定加空格
+server:
+  port: 8080
+
 logging:
-  config: logback.xml
+  config: logback-spring.xml
   level:
     com.example.log: trace
+       
+#yml文件名一定要以“application-”开头 
+spring:
+  profiles:
+    active: dev
+  aop:
+    proxy-target-class: true
