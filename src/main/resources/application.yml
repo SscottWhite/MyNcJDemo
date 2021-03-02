@@ -13,3 +13,13 @@ spring:
     active: dev
   aop:
     proxy-target-class: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url:  jdbc:mysql://localhost:3306/nwork
+    username: root
+    password: 5641
+    max-idle: 10
+    max-wait: 10000
+    min-idle: 5
+    initial-size: 5
+
