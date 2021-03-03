@@ -9,8 +9,7 @@ logging:
   config: logback-spring.xml
   level:
     com.example.log: trace
-  file:
-    path: d:/mylog
+
        
 
 spring:
