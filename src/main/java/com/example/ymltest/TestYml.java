@@ -23,7 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/t")
 public class TestYml {
 	
-	@Value("${person.name}")
+	@Value("${user.dir}")
 	public  String name;
 	
 	@Autowired
