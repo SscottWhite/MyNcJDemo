@@ -35,7 +35,7 @@ public class TestYml {
 		
 		log.info(name);
 		
-		log.info(person.getName());
+		log.info(person.getName()+"123");
 		log.info(person.getEmail());
 		log.info(om.writeValueAsString(person.getAge()));
 		log.info(om.writeValueAsString(person.getArrays()));

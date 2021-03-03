@@ -1,25 +1,41 @@
 #冒号后面一定加空格
 server:
-  port: 8080
+  port: 8081
+  servlet:
+    context-path: /testyml
 
+#日志
 logging:
   config: logback-spring.xml
   level:
     com.example.log: trace
+  file:
+    path: d:/mylog
        
-#yml文件名一定要以“application-”开头 
+
 spring:
+  #yml文件名一定要以“application-”开头 
   profiles:
     active: dev
   aop:
     proxy-target-class: true
+  #数据库
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url:  jdbc:mysql://localhost:3306/nwork
     username: root
     password: 5641
-    max-idle: 10
-    max-wait: 10000
-    min-idle: 5
-    initial-size: 5
-
+    dbcp2:
+      max-idle: 10    
+      min-idle: 5
+      initial-size: 5
+      max-wait-millis: 1000
+  #热部署
+  thymeleaf:        
+    cache: true  #启动缓存
+  devtools:
+    restart:
+      enabled: true    #部署生效
+      additional-paths:   #重启目录
+      - src/main/java
+      exclude: WEB-INF/**  #不重启的目录

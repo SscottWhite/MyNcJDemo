@@ -21,7 +21,7 @@ import lombok.Data;
 @Validated  // 或者@Configuration   // 自定义配置文件时，可以使用@Validated注解对注入的值进行一些简单的校验，
 @Component
 @ConfigurationProperties(prefix="person")  //指向配置文件的前缀 比如person.name
-@PropertySource(value="classpath:person.properties")
+//@PropertySource(value="classpath:person.properties")
 @Data
 public class Person {
 	
