@@ -123,7 +123,7 @@
 		</dependency>
 <!-- excel poi end -->		
 
-<!-- quartz start -->
+<!-- quartz 定时任务 start -->
 	  <dependency>
 		   <groupId>org.quartz-scheduler</groupId>
 		   <artifactId>quartz</artifactId>
@@ -134,6 +134,11 @@
 		   <groupId>org.quartz-scheduler</groupId>
 		   <artifactId>quartz-jobs</artifactId>
 	  </dependency>
+	  <!-- 自带的quartz -->
+	 <dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-quartz</artifactId>
+	  </dependency>	
 <!-- quartz end -->
 <!-- 测试类 -->
 	   <dependency>

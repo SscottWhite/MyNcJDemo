@@ -1,5 +1,7 @@
 package com.example.JobTrigger;
 
+import org.quartz.DateBuilder;
+import org.quartz.DateBuilder.IntervalUnit;
 import org.quartz.JobBuilder;
 import org.quartz.JobDetail;
 import org.quartz.Scheduler;
@@ -20,22 +22,23 @@ public class MyTraigger {
 
 	public static void main(String[] args) {
 		
-		 
+		 //触发器和明细都分在一个组里面group1 
 		//任务明细,把储值分给
 		JobDetail jobDetail = JobBuilder
-								.newJob(MyJob.class)
+								.newJob(MyJob.class)  //任务明细
 								.withIdentity("job1", "group1")
-								.usingJobData("name", "jake")
+								.usingJobData("name", "jake")  //要的数据
 								.build();
 		//触发器明细
 		Trigger trigger = TriggerBuilder
 							.newTrigger()
 							.withIdentity("trigger1", "group1")
+							//.startAt(DateBuilder.futureDate(1, IntervalUnit.SECOND))
 							.startNow()
 							.withSchedule(SimpleScheduleBuilder
 											.simpleSchedule()
-											.withIntervalInSeconds(1)
-											.repeatForever())
+											.withIntervalInSeconds(5)
+											.withRepeatCount(5))
 							.build();
 		
 		try {
@@ -43,15 +46,15 @@ public class MyTraigger {
 			Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
 			scheduler.scheduleJob(jobDetail, trigger);
 			scheduler.start();
-			log.info(null, scheduler.hashCode());
+			log.info("--任务开始 --");
 			try {
-				Thread.sleep(60000);
+				Thread.sleep(2000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 			
 			scheduler.shutdown();
-			
+			log.info("--任务结束--");
 		} catch (SchedulerException e) {
 			e.printStackTrace();
 		}	

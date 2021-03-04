@@ -1,6 +1,12 @@
 package com.example.base;
 
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
+
+
 public class BasicsMath {
+	
+	
 	public static void main(String[] args) {
 		int i = 12,j = 11;
 		int x = -12;
