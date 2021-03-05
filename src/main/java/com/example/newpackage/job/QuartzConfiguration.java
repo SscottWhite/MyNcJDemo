@@ -16,12 +16,15 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 import org.springframework.scheduling.quartz.SpringBeanJobFactory;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Configuration
 @EnableScheduling
+@Slf4j
 public class QuartzConfiguration {
-	/**
-	     * 继承org.springframework.scheduling.quartz.SpringBeanJobFactory
+	/** 
 	     * 实现任务实例化方式
+	     * 继承org.springframework.scheduling.quartz.SpringBeanJobFactory
      */
     public static class  AutowiringSpringBeanJobFactory 
     			 extends   SpringBeanJobFactory 
@@ -49,11 +52,14 @@ public class QuartzConfiguration {
         }
     }
 
-    /** 配置任务工厂实例 */
+    /** 
+              * 配置任务工厂实例 
+     * */
     @Bean
     public JobFactory jobFactory() {
         /*** 采用自定义任务工厂 整合spring实例来完成构建任务*/
         AutowiringSpringBeanJobFactory jobFactory = new AutowiringSpringBeanJobFactory();
+        log.info("配置任务工厂实例");
         return jobFactory;
     }
 
@@ -82,6 +88,7 @@ public class QuartzConfiguration {
         schedulerFactoryBean.setApplicationContextSchedulerContextKey("applicationContext");
         //设置配置文件位置
         schedulerFactoryBean.setConfigLocation(new ClassPathResource("/quartz.properties"));
+        log.info("配置任务调度器");
         return schedulerFactoryBean;
     }
 }
