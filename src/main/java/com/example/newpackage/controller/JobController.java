@@ -8,6 +8,7 @@ import com.example.newpackage.service.QuartzService;
 import com.example.newpackage.service.TestJob1;
 
 @RestController
+@RequestMapping("/job")
 public class JobController {
 
 	@Autowired
@@ -21,12 +22,12 @@ public class JobController {
     
     @RequestMapping("/updatejob")
     public void updatejob() {
-            quartzService.updateJob("job1", "test", "0/10 * * * * ?");
+            quartzService.modifyJobTime("job1", "test", "0/10 * * * * ?");
     }
     
     @RequestMapping("/deletejob")
     public void deletejob() {
-            quartzService.deleteJob("job1", "test");
+            quartzService.resumeJob("job1", "test");
     }
     
     @RequestMapping("/pauseJob")

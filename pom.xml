@@ -63,6 +63,11 @@
 		   <optional>true</optional>
 		   <scope>true</scope>
 		</dependency>
+		<!--这个配置和下面的Quartz的配置冲突, 当然可以替换,  相应的可以将Quartz.perproties的内容替换到yml中
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-quartz</artifactId>
+		</dependency>-->
 		
 		<dependency>
 	        <groupId>com.baomidou</groupId>

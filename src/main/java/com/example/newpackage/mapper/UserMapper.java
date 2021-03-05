@@ -10,8 +10,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+
 @Repository
-@Mapper
+//@Mapper
 public interface UserMapper {
 
     @Select("select * from nc_user")

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -22,8 +23,9 @@ public class QuartzConfiguration {
 	     * 继承org.springframework.scheduling.quartz.SpringBeanJobFactory
 	     * 实现任务实例化方式
      */
-    public static class AutowiringSpringBeanJobFactory extends SpringBeanJobFactory implements
-            ApplicationContextAware {
+    public static class  AutowiringSpringBeanJobFactory 
+    			 extends   SpringBeanJobFactory 
+    			implements  ApplicationContextAware {
 
         private transient AutowireCapableBeanFactory beanFactory;
 
@@ -75,7 +77,7 @@ public class QuartzConfiguration {
         //设置调度器自动运行
         schedulerFactoryBean.setAutoStartup(true);
         //设置数据源，使用与项目统一数据源
-        schedulerFactoryBean.setDataSource(dataSource);
+        //schedulerFactoryBean.setDataSource(dataSource);
         //设置上下文spring bean name
         schedulerFactoryBean.setApplicationContextSchedulerContextKey("applicationContext");
         //设置配置文件位置

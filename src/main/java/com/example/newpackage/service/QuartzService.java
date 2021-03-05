@@ -12,6 +12,7 @@ import org.quartz.CronScheduleBuilder;
 import org.quartz.CronTrigger;
 import org.quartz.DateBuilder;
 import org.quartz.DateBuilder.IntervalUnit;
+import org.quartz.Job;
 import org.quartz.JobBuilder;
 import org.quartz.JobDetail;
 import org.quartz.JobExecutionContext;
@@ -25,8 +26,12 @@ import org.quartz.TriggerBuilder;
 import org.quartz.TriggerKey;
 import org.quartz.impl.matchers.GroupMatcher;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.scheduling.quartz.QuartzJobBean;
 import org.springframework.stereotype.Service;
+
+import com.example.newpackage.job.QuartzConfiguration;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -37,10 +42,17 @@ public class QuartzService {
 		@Autowired
 		private Scheduler scheduler;
 		
-		@PostConstruct
+
+		@PostConstruct   //这个注释是说项目启动可以直接自动启动
 		public void startScheduler() {
 			try {
-				scheduler.start();
+				scheduler.start();			
+			     /*   ApplicationContext applicationContext = new AnnotationConfigApplicationContext(QuartzConfiguration.class);
+			        String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
+			        for (String beanName : beanDefinitionNames) {
+			            System.out.println("beanName: " + beanName);
+			        }
+			    */
 			} catch (SchedulerException e) {
 				e.printStackTrace();
 			}
@@ -77,7 +89,8 @@ public class QuartzService {
 								.withSchedule(SimpleScheduleBuilder
 												.repeatSecondlyForever(1)  
 												.withIntervalInSeconds(jobTime))
-								.startNow().build();
+								.startNow()
+								.build();
 				} else {
 					trigger = TriggerBuilder
 								.newTrigger()
@@ -142,6 +155,7 @@ public class QuartzService {
 	     * @param jobGroupName
 	     *            任务组名
 	     */
+		@Deprecated
 		public void deleteJob(String jobName,String jobGroupName) {
 			
 				try {
@@ -150,6 +164,58 @@ public class QuartzService {
 					e.printStackTrace();
 				}
 		}
+		
+		/**
+	            *     移除一个任务
+	     *
+	     * @param jobName          任务名
+	     * @param jobGroupName     任务组名
+	     * @param triggerName      触发器名
+	     * @param triggerGroupName 触发器组名
+	     */
+		public void removeJob(String jobName, String jobGroupName, String triggerName, String triggerGroupName) {
+		
+				try {
+					TriggerKey triggerKey = TriggerKey.triggerKey(triggerName, triggerGroupName);
+					JobKey jobKey = JobKey.jobKey(jobName, jobGroupName);
+					scheduler.pauseTrigger(triggerKey);
+					scheduler.unscheduleJob(triggerKey);
+					scheduler.deleteJob(jobKey);
+				} catch (SchedulerException e) {
+					e.printStackTrace();
+				}
+				
+		}
+	
+	 
+	    /**
+	     * 修改一个任务的触发时间
+	     *
+	     * @param triggerName      任务名称
+	     * @param triggerGroupName 传过来的任务名称
+	     * @param time             更新后的时间规则
+	     */
+	    public void modifyJobTime(String triggerName, String triggerGroupName, String time) {
+	        try {
+	            TriggerKey triggerKey = TriggerKey.triggerKey(triggerName, triggerGroupName);    //通过触发器名和组名获取TriggerKey
+	            CronTrigger trigger = (CronTrigger) scheduler.getTrigger(triggerKey);                //通过TriggerKey获取CronTrigger
+	            if (trigger == null) return;
+	            CronScheduleBuilder scheduleBuilder = CronScheduleBuilder.cronSchedule(time);
+	            String oldTime = trigger.getCronExpression();
+	            if (!oldTime.equalsIgnoreCase(time)) {
+	                trigger = (CronTrigger) trigger
+	                				.getTriggerBuilder()        //重新构建trigger
+	                				.withIdentity(triggerKey)
+	                				.withSchedule(scheduleBuilder)
+	                				.build();
+	                scheduler.rescheduleJob(triggerKey, trigger);                //按新的trigger重新设置job执行
+	            }
+	        } catch (Exception e) {
+	            throw new RuntimeException(e);
+	        }
+	    }
+
+
 		
 		/**
 	     * 暂停一个job
@@ -195,27 +261,10 @@ public class QuartzService {
 	            e.printStackTrace();
 	        }
 	    }
+
+	 
 	    /**
-	     * 修改 一个job的 时间表达式
-	     * 
-	     * @param jobName
-	     * @param jobGroupName
-	     * @param jobTime
-	     */
-	    public void updateJob(String jobName, String jobGroupName, String jobTime) {
-	        try {
-	            TriggerKey triggerKey = TriggerKey.triggerKey(jobName, jobGroupName);
-	            CronTrigger trigger = (CronTrigger) scheduler.getTrigger(triggerKey);
-	            trigger = trigger.getTriggerBuilder().withIdentity(triggerKey)
-	                    .withSchedule(CronScheduleBuilder.cronSchedule(jobTime)).build();
-	            // 重启触发器
-	            scheduler.rescheduleJob(triggerKey, trigger);
-	        } catch (SchedulerException e) {
-	            e.printStackTrace();
-	        }
-	    }
-	    /**
-	     	* 获取所有计划中的任务列表
+	   * 获取所有计划中的任务列表
 	     * @return
 	     */
 	    public List<Map<String,Object>> queryAllJob(){
