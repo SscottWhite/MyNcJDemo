@@ -175,6 +175,7 @@ public class QuartzService {
 					scheduler.pauseTrigger(triggerKey);
 					scheduler.unscheduleJob(triggerKey);
 					scheduler.deleteJob(jobKey);
+					log.info("deletejob:"+ jobName + "," + jobGroupName);
 				} catch (SchedulerException e) {
 					e.printStackTrace();
 				}

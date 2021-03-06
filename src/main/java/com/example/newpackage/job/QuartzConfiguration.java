@@ -18,6 +18,11 @@ import org.springframework.scheduling.quartz.SpringBeanJobFactory;
 
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * 这个类作用和以前的xml配置一样的,  bean就是 <bean> 不过是换成了class, @Configuration 就是起这个作用
+ * @author KJS_352
+ *
+ */
 @Configuration
 @EnableScheduling
 @Slf4j
