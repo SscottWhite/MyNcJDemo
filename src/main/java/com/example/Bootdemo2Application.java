@@ -29,7 +29,7 @@ public class Bootdemo2Application {
 	 * @param ctx
 	 * @return
 	 */
-	@Bean
+/*	@Bean
 	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
 	    return args -> {
 	        String[] beanNames = ctx.getBeanDefinitionNames();
@@ -41,5 +41,5 @@ public class Bootdemo2Application {
 	        }
 	        log.info("beanCounts: {} " , ctx.getBeanDefinitionCount());
 	    };
-	}
+	}*/
 }

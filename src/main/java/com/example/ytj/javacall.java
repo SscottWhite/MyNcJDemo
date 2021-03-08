@@ -10,7 +10,7 @@
  * @author not attributable
  * @version 1.0
  */
-package com.example.YTJ;
+package com.example.ytj;
 
 public class javacall
 {

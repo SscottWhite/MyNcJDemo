@@ -1,4 +1,4 @@
-package com.example.newpackage.service;
+package com.example.quartz;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +31,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Service
 @Slf4j
-public class QuartzService {
+public class QuartzManage {
 
 		@Autowired
 		private Scheduler scheduler;
@@ -41,12 +41,6 @@ public class QuartzService {
 		public void startScheduler() {
 			try {
 				scheduler.start();			
-			     /*   ApplicationContext applicationContext = new AnnotationConfigApplicationContext(QuartzConfiguration.class);
-			        String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
-			        for (String beanName : beanDefinitionNames) {
-			            System.out.println("beanName: " + beanName);
-			        }
-			    */
 			} catch (SchedulerException e) {
 				e.printStackTrace();
 			}
@@ -175,7 +169,6 @@ public class QuartzService {
 					scheduler.pauseTrigger(triggerKey);
 					scheduler.unscheduleJob(triggerKey);
 					scheduler.deleteJob(jobKey);
-					log.info("deletejob:"+ jobName + "," + jobGroupName);
 				} catch (SchedulerException e) {
 					e.printStackTrace();
 				}

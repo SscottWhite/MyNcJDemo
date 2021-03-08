@@ -1,6 +1,4 @@
-package com.example.serviceImpl;
-
-import com.example.service.MapIF;
+package com.example.service;
 
 public class MapImpl<K,V> implements MapIF<K, V> {
 

@@ -139,7 +139,13 @@
 		   <groupId>org.quartz-scheduler</groupId>
 		   <artifactId>quartz-jobs</artifactId>
 	  </dependency>
-	  <!-- 自带的quartz -->
+<!-- quartz数据库连接   -->
+	 <dependency>
+		   <groupId>com.mchange</groupId>
+		   <artifactId>c3p0</artifactId>
+		   <version>0.9.5.2</version>
+	  </dependency>
+	 <!-- 自带的quartz -->
 	 <dependency>
 	    <groupId>org.springframework.boot</groupId>
 	    <artifactId>spring-boot-starter-quartz</artifactId>
@@ -192,11 +198,6 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>com.mchange</groupId>
-			<artifactId>c3p0</artifactId>
-			<version>0.9.5.2</version>
-		</dependency>
 
 	</dependencies>
 

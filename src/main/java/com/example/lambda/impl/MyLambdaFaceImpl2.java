@@ -8,7 +8,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import com.example.DTO.UserDTO;
+import com.example.dto.UserDTO;
 import com.example.lambda.NumberProvider;
 
 

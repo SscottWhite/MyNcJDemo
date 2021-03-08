@@ -2,7 +2,7 @@ package com.example.lambda;
 
 import java.util.List;
 
-import com.example.DTO.UserDTO;
+import com.example.dto.UserDTO;
 
 @FunctionalInterface
 public interface NumberProvider {

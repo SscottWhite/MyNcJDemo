@@ -1,4 +1,4 @@
-package com.example.JobTrigger;
+package com.example.myquartzdemo;
 
 import org.quartz.DateBuilder;
 import org.quartz.DateBuilder.IntervalUnit;
@@ -10,8 +10,6 @@ import org.quartz.SimpleScheduleBuilder;
 import org.quartz.Trigger;
 import org.quartz.TriggerBuilder;
 import org.quartz.impl.StdSchedulerFactory;
-
-import com.example.JobTrigger.Impl.MyJob;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -47,6 +45,7 @@ public class MyTraigger {
 			scheduler.scheduleJob(jobDetail, trigger);
 			scheduler.start();
 			log.info("--任务开始 --");
+			
 			try {
 				Thread.sleep(2000);
 			} catch (InterruptedException e) {

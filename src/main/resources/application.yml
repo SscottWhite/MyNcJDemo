@@ -16,6 +16,7 @@ spring:
   #yml文件名一定要以“application-”开头 
   profiles:
     active: dev
+  #aop  
   aop:
     proxy-target-class: true
   #数据库
@@ -38,6 +39,7 @@ spring:
       additional-paths:   #重启目录
       - src/main/java
       exclude: WEB-INF/**  #不重启的目录
+  #用的是spring-boot-starter-quartz 持久化,  springboot自带的, 下面设置和properties表一样
   quartz:
     #持久化到数据库方式
     job-store-type: jdbc

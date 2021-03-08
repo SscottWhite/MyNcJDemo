@@ -1,4 +1,4 @@
-package com.example.JobTrigger.Impl;
+package com.example.myquartzdemo;
 
 import java.util.Date;
 

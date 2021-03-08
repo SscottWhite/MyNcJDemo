@@ -4,15 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.newpackage.service.QuartzService;
 import com.example.newpackage.service.TestJob1;
+import com.example.quartz.QuartzManage;
 
 @RestController
 @RequestMapping("/job")
 public class JobController {
 
 	@Autowired
-    private QuartzService quartzService;
+    private QuartzManage quartzService;
 	
     @RequestMapping("/addjob")
     public void startJob(String type) {

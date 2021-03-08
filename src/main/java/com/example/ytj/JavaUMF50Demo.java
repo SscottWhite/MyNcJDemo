@@ -1,4 +1,4 @@
-package com.example.YTJ;
+package com.example.ytj;
 
 public class JavaUMF50Demo {
 	
