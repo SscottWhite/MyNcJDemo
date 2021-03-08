@@ -26,3 +26,4 @@ spring:
           log-slow-sql: true
           merge-sql: true
           slow-sql-millis: 5000 
+          
