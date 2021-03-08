@@ -1,6 +1,6 @@
 package com.example.base;
 
-public abstract class abstarct {
+public abstract class AbstarctDemo {
 	int age;
 	
     public abstract void cry();

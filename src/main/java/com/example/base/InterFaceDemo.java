@@ -9,7 +9,7 @@ package com.example.base;
  *
  */
 @FunctionalInterface
-public interface interFace {
+public interface InterFaceDemo {
 	 void run();
 	 
 	 default void cry() {}

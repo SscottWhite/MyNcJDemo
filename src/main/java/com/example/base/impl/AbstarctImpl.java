@@ -1,6 +1,6 @@
 package com.example.base.impl;
 
-import com.example.base.abstarct;
+import com.example.base.AbstarctDemo;
 
 /**
  * 声明抽象方法会造成以下两个结果：
@@ -11,7 +11,7 @@ import com.example.base.abstarct;
  * @author KJS_352
  *
  */
-public class abstarctImpl extends abstarct{
+public class AbstarctImpl extends AbstarctDemo{
 	
 	public void cry() {
 		System.out.println("cry");
