@@ -1,0 +1,20 @@
+person:
+  name: dev-son
+  email: ${person.name}QQmail
+  age: ${random.int(100)}
+  arrays: 1,2,3,4,5
+  list:
+  - one
+  - two
+  - three
+  listm:
+  - name: abc
+    value: 456
+  - name: efg
+    value: 789
+  maps:
+    key1: value1
+    key2: value2
+  
+  
+  

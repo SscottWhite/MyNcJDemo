@@ -1,17 +1,28 @@
-person:
-  name: dev-son
-  email: ${person.name}QQmail
-  age: ${random.int(100)}
-  arrays: 1,2,3,4,5
-  list:
-  - one
-  - two
-  - three
-  listm:
-  - name: abc
-    value: 456
-  - name: efg
-    value: 789
-  maps:
-    key1: value1
-    key2: value2
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url:  jdbc:mysql://localhost:3306/nwork?serverTimezone=UTC
+      username: root
+      password: 5641
+      initial-size: 3
+      max-active: 10
+      min-idle: 2
+      max-wait: 5
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      max-open-prepared-statements: 20
+      #mysql中为 select 'x'
+      #oracle中为 select 1 from dual
+      validation-query:  select 'x'
+      test-on-return: false
+      test-on-borrow: false
+      test-while-idle: true
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 30000 
+      filters: stat,log4j
+      filter:
+        stat:
+          log-slow-sql: true
+          merge-sql: true
+          slow-sql-millis: 5000 
