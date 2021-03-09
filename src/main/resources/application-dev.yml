@@ -19,8 +19,9 @@ spring:
       test-on-borrow: false
       test-while-idle: true
       time-between-eviction-runs-millis: 60000
-      min-evictable-idle-time-millis: 30000 
-      filters: stat,log4j
+      min-evictable-idle-time-millis: 30000
+      #如果过滤filters: log4j ,记得加依赖
+      filters: stat
       filter:
         stat:
           log-slow-sql: true

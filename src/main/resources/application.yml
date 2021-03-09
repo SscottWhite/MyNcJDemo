@@ -3,6 +3,8 @@ server:
   port: 8081
   servlet:
     context-path: /testyml
+  tomcat:
+    max-http-form-post-size: 102400
 
 #日志
 logging:
@@ -15,7 +17,7 @@ logging:
 spring:
   #yml文件名一定要以“application-”开头 
   profiles:
-    active: prod
+    active: dev
   #aop  
   aop:
     proxy-target-class: true

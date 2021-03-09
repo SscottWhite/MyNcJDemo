@@ -52,7 +52,7 @@ public class Bootdemo2Application {
 	   * @description 注册一个StatViewServlet,进行druid监控页面配置                                                               
 	   * @return servlet registration bean                                                                           
 	   */                                                                                                            
-	//  @Bean                                                                                                          
+	  @Bean
 	  public ServletRegistrationBean druidStatViewServlet() { 
 	  	  //先配置管理后台的servLet，访问的入口为/druid/                                                       
 	      ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(                             
@@ -62,7 +62,7 @@ public class Bootdemo2Application {
 	      // IP黑名单 (存在共同时，deny优先于allow)                                                      
 		  servletRegistrationBean.addInitParameter("deny", "");           
 	      servletRegistrationBean.addInitParameter("loginUsername", "admin");                                        
-	      servletRegistrationBean.addInitParameter("loginPassword", "sdb3309");                                      
+	      servletRegistrationBean.addInitParameter("loginPassword", "admin");
 	      servletRegistrationBean.addInitParameter("resetEnable", "false");                                          
 	      return servletRegistrationBean;                                                                            
 	  }      
@@ -71,7 +71,7 @@ public class Bootdemo2Application {
 	   * @description 注册一个过滤器，允许页面正常浏览                                                                   
 	   * @return filter registration bean                                                                                      
 	   */                                                                                                                      
-	//  @Bean                                                                                                                    
+	  @Bean
 	  public FilterRegistrationBean druidStatFilter(){                                                                         
 	      FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean(                                          
 	              new WebStatFilter());                                                                                        
