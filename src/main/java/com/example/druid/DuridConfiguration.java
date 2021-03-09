@@ -18,8 +18,13 @@ import com.alibaba.druid.support.http.WebStatFilter;
 
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * 先看启动页里面的
+ * @author KJS_352
+ *
+ */
 @Slf4j
-@Configuration
+//@Configuration  
 public class DuridConfiguration {
 
 	  //  @Value("${druid.login.user_name}")
