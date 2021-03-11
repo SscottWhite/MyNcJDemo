@@ -8,7 +8,7 @@ server:
 
 #日志
 logging:
-  config: logback-spring.xml
+  config: classpath:logback-spring.xml
   level:
     com.example.log: trace
 #分页
