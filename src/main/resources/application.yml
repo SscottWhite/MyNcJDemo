@@ -11,13 +11,14 @@ logging:
   config: logback-spring.xml
   level:
     com.example.log: trace
-
+#分页
 pagehelper:
   helper-dialect: mysql
   reasonable: true
   support-methods-arguments: true
   params: count=countSql
-       
+     
+
 
 spring:
   #yml文件名一定要以“application-”开头 
@@ -71,5 +72,7 @@ spring:
         min-idle: 2        #连接池中的最小空闲连接
     timeout:   5000        #连接超时时间（毫秒）
        
-       
+  #MQ     
+  rabbitmq:
+    host: 127.0.0.1    
          
