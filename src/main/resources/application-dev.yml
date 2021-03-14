@@ -2,6 +2,7 @@ spring:
   datasource:
     druid:
       driver-class-name: com.mysql.cj.jdbc.Driver
+      #?serverTimezone=UTC解决时区的报错
       url:  jdbc:mysql://localhost:3306/nwork?serverTimezone=UTC
       username: root
       password: 5641
@@ -21,6 +22,7 @@ spring:
       time-between-eviction-runs-millis: 60000
       min-evictable-idle-time-millis: 30000
       #如果过滤filters: log4j ,记得加依赖
+      #配置监控统计拦截的filters，stat:监控统计、log4j：日志记录、wall：防御sql注入
       filters: stat
       filter:
         stat:

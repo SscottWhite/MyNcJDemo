@@ -17,7 +17,7 @@ pagehelper:
   reasonable: true
   support-methods-arguments: true
   params: count=countSql
-     
+  offset-as-page-num: true
 
 
 spring:
@@ -76,3 +76,8 @@ spring:
   rabbitmq:
     host: 127.0.0.1    
          
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package:
+  configuration:
+    map-underscore-to-camel-case: true
