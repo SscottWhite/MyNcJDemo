@@ -17,7 +17,7 @@ import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
 
 import lombok.extern.slf4j.Slf4j;
-
+//DruidDataSourceAutoConfigure.class  可以去掉Druid自动数据源
 //@SpringBootApplication(exclude= {DataSourceAutoConfiguration.class})  //用mapperScan的时候把这个关了
 @SpringBootApplication
 @EnableScheduling  //开启定时
