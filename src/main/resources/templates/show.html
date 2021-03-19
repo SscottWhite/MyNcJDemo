@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>SpringBoot模版渲染</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+</head>
+<body>
+    <p th:text="'用户ID：' + ${uid}"/>
+    <p th:text="'用户名称：' + ${name}"/>
+     <p th:utext="'颜色: '+ ${color}"/>   <!-- utext不会转义 -->
+    <p th:text="'时间:  ' + ${#dates.format(date,'yyyy-MM-dd')}"/>
+    <hr/>
+    <p th:text="${#httpServletRequest.getRemoteAddr()}"/>
+    <p th:text="${#httpServletRequest.getAttribute('requestMessage')}"/>
+    <p th:text="${#httpSession.getId()}"/>
+    <p th:text="${#httpServletRequest.getServletContext().getRealPath('/')}"/>
+    <hr/>
+    <p th:text="'requestMessage = ' + ${requestMessage}"/>
+    <p th:text="'sessionMessage = ' + ${session.sessionMessage}"/>
+    <p th:text="'applicationMessage = ' + ${application.applicationMessage}"/>
+    
+    
+</body>
+</html>

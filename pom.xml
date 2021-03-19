@@ -57,6 +57,7 @@
 				</exclusion>
 			</exclusions>
 		</dependency> 
+		<!-- 热部署 -->
 		<dependency>
 		   <groupId>org.springframework.boot</groupId>
 		   <artifactId>spring-boot-devtools</artifactId>
@@ -68,16 +69,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-quartz</artifactId>
 		</dependency> -->
+		
 <!-- redis依赖包  -->
 		<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-data-redis</artifactId>
 		</dependency>
-		<dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
-            <version>4.5.6</version>
-        </dependency>
 
 <!-- 集成springboot pagehelper插件   -->
 		<dependency>
@@ -85,32 +82,24 @@
 		    <artifactId>pagehelper-spring-boot-starter</artifactId>
 		    <version>1.3.0</version>
 		</dependency>
-		<!-- rabbitmq依赖 -->
+		
+<!-- rabbitmq依赖 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-amqp</artifactId>
 		</dependency>
-
+		
+<!-- mybatis-plus依赖 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jdbc</artifactId>
 		</dependency>
-
 		<dependency>
 	        <groupId>com.baomidou</groupId>
 	        <artifactId>mybatis-plus-boot-starter</artifactId>
 	        <version>3.4.2</version>
     	</dependency>
- <!--    <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-log4j2</artifactId>
-        </dependency>
-        <dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
-		</dependency> -->
-		
+    
 <!--start excel转PDF -->  
 		 <dependency>
 		 	<groupId>e-iceblue</groupId>
@@ -140,14 +129,12 @@
 		   <groupId>org.apache.poi</groupId>
 		   <artifactId>poi</artifactId>
 		   <version>${poi-version}</version>
-		</dependency>
-		
+		</dependency>		
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi-ooxml</artifactId>
 		   <version>${poi-version}</version>
-		</dependency>
-		
+		</dependency>		
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi-ooxml-schemas</artifactId>
@@ -161,23 +148,18 @@
 		   <artifactId>quartz</artifactId>
 		   <version>2.3.2</version>
 	  </dependency>
-	
 	  <dependency>
 		   <groupId>org.quartz-scheduler</groupId>
 		   <artifactId>quartz-jobs</artifactId>
 	  </dependency>
-<!-- quartz数据库连接   -->
+	 <!-- quartz数据库连接   -->
 	 <dependency>
 		   <groupId>com.mchange</groupId>
 		   <artifactId>c3p0</artifactId>
 		   <version>0.9.5.2</version>
 	  </dependency>
-	 <!-- 自带的quartz -->
-	 <dependency>
-	    <groupId>org.springframework.boot</groupId>
-	    <artifactId>spring-boot-starter-quartz</artifactId>
-	  </dependency>	
 <!-- quartz end -->
+
 <!-- 测试类 -->
 	   <dependency>
 	      	 <groupId>junit</groupId>
@@ -185,12 +167,13 @@
 	         <version>4.12</version>
 	     	<!-- <scope>test</scope>-->
 	    </dependency>
-
+<!-- JSON -->
 	    <dependency>
 	    	<groupId>com.alibaba</groupId>
 	    	<artifactId>fastjson</artifactId>
 	    	<version>1.2.73</version>
 	    </dependency> 	
+	    
 <!-- druid -->
 	    <dependency>
 		     <groupId>com.alibaba</groupId>
@@ -202,6 +185,8 @@
 		   <artifactId>druid-spring-boot-starter</artifactId>
 		   <version>1.1.17</version>
 		</dependency>
+		
+<!-- log4j -->		
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
@@ -214,7 +199,6 @@
             <artifactId>core</artifactId>
             <version>3.3.0</version>
         </dependency>
-
        <dependency>
          <groupId>com.aliyun</groupId>
          <artifactId>aliyun-java-sdk-core</artifactId>
@@ -235,24 +219,46 @@
 			<version>1.18.18</version>
 			<scope>provided</scope>
 		</dependency>
+		
+<!-- mysql -->		
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-		<!--HttpClient-->
+		
+<!--HttpClient-->
 		<dependency>
 		    <groupId>commons-httpclient</groupId>
 		    <artifactId>commons-httpclient</artifactId>
 		    <version>3.1</version>
 		</dependency>
-		<!--CloseableHttpClient-->
+		
+<!--CloseableHttpClient-->
 		<dependency>
 		    <groupId>org.apache.httpcomponents</groupId>
 		    <artifactId>httpclient</artifactId>
-		    <version>4.5.2</version>
+		    <version>4.5.6</version>
 		</dependency>
-
+<!-- H2数据库 -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+		    <artifactId>h2</artifactId>
+		    <version>1.4.197</version>
+		    <scope>test</scope>
+		</dependency>
+<!-- swagger2 -->		
+		<dependency>
+    		<groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.6.1</version>
+        </dependency>
+	
 	</dependencies>
 
 	<build>
