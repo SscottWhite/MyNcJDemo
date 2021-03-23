@@ -19,7 +19,7 @@ pagehelper:
   params: count=countSql
   offset-as-page-num: true
 
-
+      
 spring:
   #yml文件名一定要以“application-”开头 
   profiles:
@@ -75,7 +75,11 @@ spring:
   #MQ     
   rabbitmq:
     host: 127.0.0.1    
-         
+  #jsp
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package:
