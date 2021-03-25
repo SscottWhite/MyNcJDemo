@@ -22,7 +22,7 @@ import lombok.extern.slf4j.Slf4j;
 @SpringBootApplication
 @EnableScheduling  //开启定时
 @MapperScan("com.example")//配合@Repository
-@Slf4j
+//@Slf4j
 public class Bootdemo2Application {
 
 	public static void main(String[] args) {
