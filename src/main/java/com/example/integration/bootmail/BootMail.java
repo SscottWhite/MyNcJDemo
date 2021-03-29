@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class BootMail {
-	@Autowired
-    private JavaMailSender mailSender;
+	///@Autowired
+   // private JavaMailSender mailSender;
     @GetMapping("/send")
     private void send(){
         SimpleMailMessage message = new SimpleMailMessage();
@@ -23,7 +23,7 @@ public class BootMail {
         message.setText("你好，这是一条用于测试Spring Boot邮件发送功能的邮件！哈哈哈~~~");
         // 抄送人
        // message.setCc("xxx@qq.com");
-        mailSender.send(message);
+     //   mailSender.send(message);
     }
 
 }

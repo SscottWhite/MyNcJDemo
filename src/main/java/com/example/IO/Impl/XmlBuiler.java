@@ -19,7 +19,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 public class XmlBuiler {
-	
+/*
 	@Test
 	public void test() {
 		Long start = System.currentTimeMillis();
@@ -71,4 +71,6 @@ public class XmlBuiler {
 			e.printStackTrace();
 		}	
 	}
+
+ */
 }

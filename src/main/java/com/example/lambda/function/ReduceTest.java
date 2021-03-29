@@ -53,9 +53,9 @@ public class ReduceTest {
 					.stream()
 					.flatMap(o -> o.isPresent() ? Stream.of(o.get()) : Stream.empty())
 					.collect(Collectors.toList());
-		List<String> list3 = list1.stream().flatMap(Optional::stream).collect(Collectors.toList());
+	//	List<String> list3 = list1.stream().flatMap(Optional::stream).collect(Collectors.toList());
 		
 		System.out.println(list2);
-		System.out.println(list3);
+//		System.out.println(list3);
 	}
 }
