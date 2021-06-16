@@ -25,6 +25,7 @@ public class ReduceTest {
 		Integer one = Stream.of(1,2,3,4).reduce((a,b) -> a+b).get();
 		Integer two = Stream.of(1,2,3,4).reduce(5,(a,b) -> a+b);
 		Long three = Stream.of(1,2,3,4).reduce(0L,(a,b) -> a+b,(a,b)->0L);
+		Long forth = Stream.of(1,2,3,4).reduce(0L,(a,b) -> a+b,(a,b)->0L);
 		
 		ArrayList<Integer> newList = new ArrayList<Integer>();
 		ArrayList<Integer> accResult_s = Stream.of(1,2,3,4)
