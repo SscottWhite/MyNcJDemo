@@ -14,6 +14,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Reader;
+import java.io.StringWriter;
 import java.io.Writer;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
@@ -105,5 +106,6 @@ public class InputStreamReaderTest {
 	//	Reader reader = new InputStreamReader(input, "UTF-8");
 		
 //===================================================================================================		
+		StringWriter sw = new StringWriter();
 	}
 }
