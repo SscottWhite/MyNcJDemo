@@ -309,8 +309,9 @@
 		   <groupId>org.springframework.boot</groupId>
 		   <artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
-
+	<!-- 邮件end  -->
 	</dependencies>
+
 
 	<build>
 		<plugins>
@@ -322,9 +323,7 @@
 					<fork>true</fork>
 				</configuration>		
 			</plugin>
-		</plugins>
-		
-		
+		</plugins>	
 	</build>
 	
 	<profiles>
