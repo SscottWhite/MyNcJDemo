@@ -14,7 +14,7 @@ public class SupplierTest {
 			 .forEach(System.out::println);
 		
 		
-	   List.of("1","2").stream().toArray(String[]::new);
+	   //List.of("1","2").stream().toArray(String[]::new);
 	   
 	}
 }

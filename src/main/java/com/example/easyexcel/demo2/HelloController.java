@@ -6,7 +6,6 @@ import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -37,7 +36,6 @@ import org.springframework.web.multipart.MultipartFile;
 import com.alibaba.excel.EasyExcel;
 import com.alibaba.excel.context.AnalysisContext;
 import com.alibaba.excel.event.AnalysisEventListener;
-
 
 
 @RestController
@@ -95,10 +93,10 @@ public class HelloController {
 		}
 		
 		List<UserModel> list = new ArrayList();
-		list.add(new UserModel("张三",12,"13867098765","男",new Date()));
-		list.add(new UserModel("张三1",12,"13867098765","男",new Date()));
-		list.add(new UserModel("张三2",12,"13867098765","男",new Date()));
-		list.add(new UserModel("张三3",12,"13867098765","男",new Date()));
+//		list.add(new UserModel("张三",12,"13867098765","男","2020.05.16 12:02:03"));
+//		list.add(new UserModel("张三1",12,"13867098765","男","2020.05.16 12:02:03"));
+//		list.add(new UserModel("张三2",12,"13867098765","男","2020.05.16 12:02:03"));
+//		list.add(new UserModel("张三3",12,"13867098765","男","2020.05.16 12:02:03"));
 		
 		for (UserModel user : list) {
 			int rowNum = sheet.getLastRowNum();

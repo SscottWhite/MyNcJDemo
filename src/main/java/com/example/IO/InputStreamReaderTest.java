@@ -22,7 +22,7 @@ import java.util.Properties;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.ZipInputStream;
 
-import jdk.internal.org.jline.utils.InputStreamReader;
+//import jdk.internal.org.jline.utils.InputStreamReader;
 
 
 public class InputStreamReaderTest {

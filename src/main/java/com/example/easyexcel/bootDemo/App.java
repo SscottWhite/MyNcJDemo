@@ -1,5 +1,6 @@
 package com.example.easyexcel.bootDemo;
 
+import java.awt.image.IndexColorModel;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
@@ -7,19 +8,24 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import com.example.easyexcel.dto.UserModel;
+import com.example.easyexcel.handlers.CustomCellWriteHandler;
+import com.example.easyexcel.handlers.CustomSheetWriteHandler;
+import org.apache.poi.ss.usermodel.FillPatternType;
+import org.apache.poi.ss.usermodel.IndexedColors;
+
 import com.alibaba.excel.EasyExcel;
 import com.alibaba.excel.ExcelWriter;
 import com.alibaba.excel.write.merge.LoopMergeStrategy;
 import com.alibaba.excel.write.metadata.WriteSheet;
+import com.alibaba.excel.write.metadata.style.WriteCellStyle;
+import com.alibaba.excel.write.style.HorizontalCellStyleStrategy;
 import com.alibaba.excel.write.style.column.LongestMatchColumnWidthStyleStrategy;
-import com.example.easyexcel.dto.UserModel;
-import com.example.easyexcel.handlers.CustomCellWriteHandler;
-import com.example.easyexcel.handlers.CustomSheetWriteHandler;
-
-
 
 public class App 
 {
+	static final String FINAL_NAME =  "D:\\Users\\kjs_352\\Desktop\\easyexcel (1).xlsx";
+	
 	public static void main(String[] args) {
 		System.out.println("123");
 		int i = 9;
@@ -27,8 +33,8 @@ public class App
 	    System.out.println(i);
 	    System.out.println(432 % (int) Math.pow(10, 2) / (int) Math.pow(10, 1));
 	    
-	    String fileName = "C:\\Users\\Sscott\\Desktop\\easyexcel.xlsx";
-	    //这个是排除没错
+	    
+	    //这个是排除
 	    Set<String> excludeColumnFiledNames = new HashSet<String>();
 	    excludeColumnFiledNames.add("date"); //用的是字符名
 	    
@@ -47,19 +53,32 @@ public class App
 //	      }
 //	    ew.finish();
 	    
-	    //合并策略 //从第(4+1)列开始, 内容每2个合并
-	    LoopMergeStrategy loopMergeStrategy = new LoopMergeStrategy(2, 4);
-	   
-	    //这是整个抹除数据重写的方法
+	    
+	    // 合并策略 //从第(0+1)列开始, 内容每2个合并(上下)
+	    LoopMergeStrategy loopMergeStrategy = new LoopMergeStrategy(2, 0);
+	    //1是纵向合并数, 那1就是不合并,    3是合并数,  2是说明从(2+1)列的位置开始,--> 所以是第三列开始每行合并三个
+	    LoopMergeStrategy loopMergeStrategy2 = new LoopMergeStrategy(1,3,2);
+	    
+	    
+	    WriteCellStyle headWrite = new WriteCellStyle();
+	    WriteCellStyle contentWrite = new WriteCellStyle();
+	    			   contentWrite.setFillPatternType(FillPatternType.SOLID_FOREGROUND);
+	    			   contentWrite.setFillForegroundColor(IndexedColors.GREEN.index);
+	    //格式设置(头格式+内容格式)
+	    HorizontalCellStyleStrategy horizontalCellStyleStrategy =
+	            new HorizontalCellStyleStrategy(headWrite, contentWrite);
+	  
+//这是整个抹除数据重写的方法
 	    EasyExcel
-		    .write(fileName, UserModel.class)  
+		    .write(FINAL_NAME, UserModel.class)  
 		    //两个方法放在一起就是取不重复部分
 		    .excludeColumnFiledNames(excludeColumnFiledNames)   //导出忽略字段
 		  //  .includeColumnFiledNames(includeColumnFiledNames)   //导出需要的字段
-		    .registerWriteHandler(loopMergeStrategy)
+		    .registerWriteHandler(loopMergeStrategy2)
 		    //.registerWriteHandler(new LongestMatchColumnWidthStyleStrategy())//自动列宽
 		    .registerWriteHandler(new CustomSheetWriteHandler())
 		    .registerWriteHandler(new CustomCellWriteHandler())
+		    .registerWriteHandler(horizontalCellStyleStrategy)
 		    .sheet(1,"teat")
 		    .doWrite(getList());
 		
