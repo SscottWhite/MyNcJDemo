@@ -8,7 +8,7 @@ import com.example.designmode.factory.instance.pc.PC;
 import com.example.designmode.factory.instance.phone.IosPhone;
 import com.example.designmode.factory.instance.phone.Phone;
 
-public class IosFactory implements Factory {
+public  class IosFactory implements Factory {
 	@Override
 	public Phone createPhone() {
 		return new IosPhone();
