@@ -1,4 +1,4 @@
-package com.example.designmode.factory.simpletest;
+package com.example.designmode.factory.instance.phone;
 
 public class IosPhone implements Phone {
 

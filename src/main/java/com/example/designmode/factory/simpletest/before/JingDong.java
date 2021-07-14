@@ -1,8 +1,8 @@
 package com.example.designmode.factory.simpletest.before;
 
-import com.example.designmode.factory.simpletest.AndroidTest;
-import com.example.designmode.factory.simpletest.IosPhone;
-import com.example.designmode.factory.simpletest.Phone;
+import com.example.designmode.factory.instance.phone.AndroidPhone;
+import com.example.designmode.factory.instance.phone.IosPhone;
+import com.example.designmode.factory.instance.phone.Phone;
 
 public class JingDong {
     public void order(String type) {
@@ -11,7 +11,7 @@ public class JingDong {
             phone = new IosPhone();
             phone.play();
         } else if ("xiaomi".equals(type)) {
-            phone = new AndroidTest();
+            phone = new AndroidPhone();
             phone.play();
         } else {
             System.out.println("暂不支持");
